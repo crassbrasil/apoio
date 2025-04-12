@@ -1,109 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ajude Ana Laura</title>
   <style>
     body {
+      font-family: 'Arial', sans-serif;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
+      padding: 0;
+      background: #fff8f4;
       color: #333;
+      text-align: center;
     }
     header {
-      background: #f04b4b;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .hero {
-      text-align: center;
       padding: 20px;
     }
-    .hero img {
-      max-width: 300px;
-      border-radius: 15px;
+    h1 {
+      font-size: 2rem;
+      margin: 0 10px;
     }
-    .headline {
-      font-size: 24px;
-      margin: 20px 0;
-    }
-    .donate-options {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px;
-    }
-    .donate-options button {
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      background-color: #f04b4b;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .donate-options button:hover {
-      background-color: #c93c3c;
+    .photo {
+      width: 250px;
+      height: auto;
+      border-radius: 16px;
+      margin: 20px auto;
     }
     .progress-container {
-      text-align: center;
-      margin: 30px 0;
-      padding: 0 20px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 400px;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
     }
     .progress-bar {
-      background-color: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto 10px;
-    }
-    .progress {
       height: 25px;
-      width: 65%; /* Exemplo de progresso */
-      background-color: #4caf50;
-    }
-    .donors-count {
+      width: 60%;
+      background: linear-gradient(to right, #ff4081, #ff80ab);
+      text-align: right;
+      line-height: 25px;
+      color: #fff;
       font-weight: bold;
+      border-radius: 10px 0 0 10px;
+    }
+    .donation-count {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+    .buttons {
+      margin: 30px auto;
+    }
+    .buttons button {
+      margin: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #ff4081;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .buttons button:hover {
+      background: #e91e63;
+    }
+    .qr-section {
+      margin-top: 40px;
+    }
+    .qr-section canvas {
+      margin-top: 10px;
     }
     footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 10px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Ajude a Ana Laura</h1>
+    <h1>Ajude a Ana Laura a conquistar seu tratamento!</h1>
+    <img src="https://via.placeholder.com/250x300.png?text=Foto+Ana+Laura" alt="Foto Ana Laura" class="photo" />
   </header>
 
-  <section class="hero">
-    <img src="https://julinhoj.github.io/AnaNetinha/images/ana.jpg" alt="Ana Laura" />
-    <p class="headline">Sua ajuda pode mudar a vida da Ana Laura. Participe dessa corrente do bem!</p>
-  </section>
-
-  <section class="donate-options">
-    <button>Doar R$10</button>
-    <button>Doar R$20</button>
-    <button>Doar R$50</button>
-    <button>Doar R$100</button>
-    <button>Outro valor</button>
-  </section>
-
   <section class="progress-container">
-    <div class="progress-bar">
-      <div class="progress"></div>
-    </div>
-    <p class="donors-count">325 pessoas já contribuíram</p>
+    <div class="progress-bar" style="width: 60%;">R$ 6.000</div>
+  </section>
+  <div class="donation-count">135 pessoas já doaram 💖</div>
+
+  <section class="buttons">
+    <h2>Escolha um valor para doar</h2>
+    <button onclick="alert('Pix gerado para R$10')">Doar R$10</button>
+    <button onclick="alert('Pix gerado para R$30')">Doar R$30</button>
+    <button onclick="alert('Pix gerado para R$50')">Doar R$50</button>
+    <button onclick="alert('Pix gerado para R$100')">Doar R$100</button>
+  </section>
+
+  <section class="qr-section">
+    <h2>Ou escaneie o QR Code do Pix</h2>
+    <div id="qrcode"></div>
   </section>
 
   <footer>
-    <p>© 2024 Campanha Ana Laura. Todos os direitos reservados.</p>
+    <p>Todo valor é muito bem-vindo. Gratidão por sua ajuda 💗</p>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "00020126360014BR.GOV.BCB.PIX0114SEUEMAIL@PIX.COM5204000053039865405100.005802BR5920Ana Laura da Silva6009SAO PAULO62100509ABCDEFGHI6304B13D",
+      width: 200,
+      height: 200
+    });
+  </script>
+
 </body>
 </html>
