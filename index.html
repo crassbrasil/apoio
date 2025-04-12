@@ -7,49 +7,88 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffeaea;
+      color: #333;
       text-align: center;
-      color: #fff;
     }
-    .container {
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 20px;
+
+    header {
+      padding: 2rem 1rem;
     }
+
+    header img {
+      max-width: 180px;
+      border-radius: 50%;
+    }
+
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-top: 1rem;
     }
+
     p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
+      margin: 1rem auto;
+      max-width: 600px;
     }
-    button {
-      background-color: #fff;
-      color: #ff4e50;
+
+    .button-section {
+      margin-top: 2rem;
+    }
+
+    .donate-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #ff4d4d;
+      color: #fff;
+      font-size: 1.2rem;
       border: none;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      text-decoration: none;
+      margin: 0.5rem;
+      transition: background 0.3s;
     }
-    button:hover {
-      background-color: #ffd6d6;
+
+    .donate-button:hover {
+      background-color: #e63636;
+    }
+
+    .qrcode {
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ajude Ana Laura 💖</h1>
-    <p>Participe da nossa campanha e compartilhe esperança.</p>
-    <button onclick="alert('Obrigado por sua ajuda!')">Quero Ajudar</button>
-  </div>
+
+  <header>
+    <img src="https://julinhoj.github.io/AnaNetinha/images/ana.jpg" alt="Foto de Ana Laura">
+    <h1>Ajude a Ana Laura</h1>
+    <p>Essa é a Ana Laura. Ela precisa de ajuda para custear seu tratamento. Clique em um dos botões abaixo para contribuir. Toda ajuda é bem-vinda! ❤️</p>
+    <div class="button-section">
+      <a href="https://nubank.com.br/pagar/1i1gxh/2RBBr0cM4H" class="donate-button" target="_blank">Doar via Nubank</a>
+      <a href="https://picpay.me/julinhoj/10.00" class="donate-button" target="_blank">Doar via PicPay</a>
+      <a href="#qrcode" class="donate-button" onclick="gerarQRCode()">PIX</a>
+    </div>
+    <div id="qrcode" class="qrcode"></div>
+  </header>
 
   <script>
-    // Aqui você pode colocar seu JavaScript se quiser interações
+    function gerarQRCode() {
+      const container = document.getElementById('qrcode');
+      container.innerHTML = '';
+      new QRCode(container, {
+        text: '00020126330014BR.GOV.BCB.PIX0112julinhoj123450214Ajude Ana5204000053039865802BR5921Julio Silva de Jesus6008Brasilia62070503***63047DB3',
+        width: 200,
+        height: 200,
+      });
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js';
+    document.body.appendChild(script);
   </script>
+
 </body>
 </html>
