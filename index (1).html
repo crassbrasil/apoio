@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajude Ana Laura</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #fff5f5;
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+
+    #qrcode {
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+    }
+
+    .button-fixed {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff477e;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+
+    .button-fixed:hover {
+      background: #e33d6f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ajude Ana Laura</h1>
+    <p>Sua contribuição pode fazer toda a diferença!</p>
+    <img src="https://via.placeholder.com/400x300?text=Imagem+de+Ana+Laura" alt="Imagem da Ana Laura">
+    <div id="qrcode"></div>
+  </div>
+
+  <button class="button-fixed" onclick="window.location.href='https://pix.example.com'">
+    Fazer uma Doação via PIX
+  </button>
+
+  <script>
+    // QR Code básico usando API nativa (substitua pela chave do PIX)
+    const qrcode = document.getElementById("qrcode");
+    const pixKey = "00020101021126580014BR.GOV.BCB.PIX0136emaildaana@example.com5204000053039865405100.005802BR5920Ana+Laura+da+Silva6009Sao+Paulo62070503***6304ABCD";
+    const pixUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(pixKey)}&chs=200x200&chld=L|0`;
+    const img = document.createElement("img");
+    img.src = pixUrl;
+    img.alt = "QR Code PIX";
+    qrcode.appendChild(img);
+  </script>
+</body>
+</html>
