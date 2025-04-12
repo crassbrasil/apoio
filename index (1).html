@@ -7,71 +7,49 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #fff5f5;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
       text-align: center;
-      color: #333;
+      color: #fff;
     }
-
     .container {
+      max-width: 600px;
+      margin: 80px auto;
       padding: 20px;
     }
-
     h1 {
       font-size: 2em;
-      margin-top: 20px;
+      margin-bottom: 20px;
     }
-
-    img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      margin: 20px 0;
-    }
-
-    #qrcode {
-      margin: 20px auto;
-      width: 200px;
-      height: 200px;
-    }
-
-    .button-fixed {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff477e;
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 30px;
+    p {
       font-size: 1.2em;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      z-index: 999;
+      margin-bottom: 30px;
     }
-
-    .button-fixed:hover {
-      background: #e33d6f;
+    button {
+      background-color: #fff;
+      color: #ff4e50;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ffd6d6;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Ajude Ana Laura</h1>
-    <p>Sua contribuição pode fazer toda a diferença!</p>
-    <img src="https://via.placeholder.com/400x300?text=Imagem+de+Ana+Laura" alt="Imagem da Ana Laura">
-    <div id="qrcode"></div>
+    <h1>Ajude Ana Laura 💖</h1>
+    <p>Participe da nossa campanha e compartilhe esperança.</p>
+    <button onclick="alert('Obrigado por sua ajuda!')">Quero Ajudar</button>
   </div>
 
-  <button class="button-fixed" onclick="window.location.href='https://pix.example.com'">
-    Fazer uma Doação via PIX
-  </button>
-
   <script>
-    // QR Code gerado com chave PIX
-    // Biblioteca QRCode.js inline
-    !function(t){function e(t){this.options={text:"",width:256,height:256,colorDark:"#000000",colorLight:"#ffffff",correctLevel:H.QRErrorCorrectLevel.H},typeof t=="string"&&(t=document.getElementById(t)),this._el=t,this._htOption={};for(var e in this.options)this._htOption[e]=this.options[e];this._htOption.text="chave-pix-aqui";this._el.innerHTML="";new QRCode(this._el,this._htOption)}function r(t){var e=document.createElement("script");e.src=t,document.head.appendChild(e)}var H=window;H.QRCode=e,r("https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js")}();
+    // Aqui você pode colocar seu JavaScript se quiser interações
   </script>
 </body>
 </html>
