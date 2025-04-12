@@ -1,112 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ajude Ana Laura</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff5f7;
+      background-color: #fffafc;
+      margin: 0;
+      padding: 0;
       color: #333;
-      text-align: center;
     }
     header {
-      padding: 2rem;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
     }
-    h1 {
+    header h1 {
       font-size: 2rem;
-      color: #e60073;
+      color: #d6336c;
     }
-    .img-container {
-      margin: 2rem auto;
-      max-width: 300px;
-    }
-    .img-container img {
-      width: 100%;
-      border-radius: 1rem;
-    }
-    .donation-section {
+    .progress-container {
       padding: 1rem;
-    }
-    .donation-buttons button {
-      background: #e60073;
-      color: white;
-      border: none;
-      padding: 1rem;
-      margin: 0.5rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
-    .progress-bar-container {
-      margin: 2rem auto;
-      width: 80%;
-      background: #ddd;
-      border-radius: 1rem;
-      overflow: hidden;
+      text-align: center;
     }
     .progress-bar {
-      width: 60%;
-      background: #e60073;
-      height: 1.5rem;
+      width: 80%;
+      height: 25px;
+      margin: 0 auto;
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
     }
-    .qr-section {
+    .progress {
+      background: linear-gradient(to right, #f093fb, #f5576c);
+      height: 100%;
+      width: 65%;
+      animation: grow 2s ease-out;
+    }
+    .progress-text {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+    @keyframes grow {
+      0% { width: 0; }
+      100% { width: 65%; }
+    }
+    .donors {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .btn-doar-agora {
+      display: block;
+      margin: 1rem auto;
+      background: #d6336c;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .descricao {
+      padding: 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .imagens {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .imagens img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+    .destaque {
+      background: #ffe6f0;
+      padding: 1rem;
+      font-weight: bold;
+      text-align: center;
+      color: #d6336c;
+      margin: 1rem;
+      border-radius: 10px;
+    }
+    .valores {
+      text-align: center;
       margin: 2rem auto;
     }
-    #qrcode {
+    .valores button {
+      margin: 0.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: #f093fb;
+      color: #fff;
+      cursor: pointer;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .popup-content canvas {
       margin: 1rem auto;
     }
-    footer {
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
+    .close-btn {
+      margin-top: 1rem;
+      background: #d6336c;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Ajude Ana Laura a vencer essa batalha!</h1>
-    <p>Cada doação conta. Escolha um valor ou doe pelo Pix.</p>
+    <h1>Ajude a Ana Laura 💖</h1>
   </header>
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+    <div class="progress-text">R$6.500 de R$10.000 (65%)</div>
+  </div>
+  <div class="donors">📢 253 pessoas já doaram</div>
 
-  <div class="img-container">
-    <img src="https://julinhoj.github.io/AnaNetinha/images/ana.png" alt="Foto da Ana Laura">
+  <a class="btn-doar-agora" href="#valores">DOAR AGORA</a>
+
+  <div class="descricao">
+    <p>A Ana Laura precisa de você! Estamos em uma campanha urgente para arrecadar fundos para seu tratamento. Cada ajuda conta, e juntos podemos fazer a diferença.</p>
   </div>
 
-  <section class="donation-section">
-    <div class="donation-buttons">
-      <button>R$ 10</button>
-      <button>R$ 25</button>
-      <button>R$ 50</button>
-      <button>Outro valor</button>
+  <div class="imagens">
+    <img src="exame1.jpg" alt="Exame 1">
+    <img src="exame2.jpg" alt="Exame 2">
+  </div>
+
+  <div class="descricao">
+    <p>Ela luta com coragem todos os dias. Sua contribuição garante mais dias de sorriso e esperança. 💪💗</p>
+  </div>
+
+  <div class="imagens">
+    <img src="foto3.jpg" alt="Foto complementar">
+  </div>
+
+  <div class="valores" id="valores">
+    <h3>Clique no valor que deseja doar</h3>
+    <div class="destaque">✨ DOAÇÃO DUPLICADA! ✨<br>Doações a partir de R$50 serão multiplicadas por 2 pelos nossos patrocinadores até 25/04. Sua ajuda vale o dobro!</div>
+    <button onclick="abrirPopup(10)">R$10</button>
+    <button onclick="abrirPopup(25)">R$25</button>
+    <button onclick="abrirPopup(50)">R$50</button>
+    <button onclick="abrirPopup(100)">R$100</button>
+    <button onclick="abrirPopup(200)">R$200</button>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Escaneie o QR Code ou copie a chave Pix abaixo:</h3>
+      <canvas id="qrcode"></canvas>
+      <p id="chavePix"></p>
+      <button class="close-btn" onclick="fecharPopup()">Fechar</button>
     </div>
-  </section>
-
-  <section class="progress-bar-container">
-    <div class="progress-bar"></div>
-    <p><strong>R$ 6.000</strong> arrecadado de <strong>R$ 10.000</strong></p>
-  </section>
-
-  <section class="qr-section">
-    <p>Escaneie o QR Code abaixo ou clique para copiar a chave Pix:</p>
-    <div id="qrcode"></div>
-    <button onclick="copiarChavePix()">Copiar chave Pix</button>
-  </section>
-
-  <footer>
-    <p>© 2024 Todos os direitos reservados - Ana Laura</p>
-  </footer>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
-    const chavePix = "00020126360014BR.GOV.BCB.PIX0111analaura@pix520400005303986540410005802BR5920Ana Laura dos Santos6009SAO PAULO62100506QR123";
-    QRCode.toCanvas(document.getElementById('qrcode'), chavePix, { width: 200 });
+    function abrirPopup(valor) {
+      const chave = `00020126330014BR.GOV.BCB.PIX0114chavepix@exemplo520400005303986540${valor.toFixed(2)}5802BR5920Ana Laura Campanha6009SAO PAULO62070503***6304ABCD`;
+      document.getElementById('popup').style.display = 'flex';
+      document.getElementById('chavePix').innerText = chave;
+      QRCode.toCanvas(document.getElementById('qrcode'), chave);
+    }
 
-    function copiarChavePix() {
-      navigator.clipboard.writeText(chavePix).then(() => {
-        alert("Chave Pix copiada com sucesso!");
-      });
+    function fecharPopup() {
+      document.getElementById('popup').style.display = 'none';
     }
   </script>
 </body>
