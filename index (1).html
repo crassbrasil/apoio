@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -70,14 +69,9 @@
   </button>
 
   <script>
-    // QR Code básico usando API nativa (substitua pela chave do PIX)
-    const qrcode = document.getElementById("qrcode");
-    const pixKey = "00020101021126580014BR.GOV.BCB.PIX0136emaildaana@example.com5204000053039865405100.005802BR5920Ana+Laura+da+Silva6009Sao+Paulo62070503***6304ABCD";
-    const pixUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(pixKey)}&chs=200x200&chld=L|0`;
-    const img = document.createElement("img");
-    img.src = pixUrl;
-    img.alt = "QR Code PIX";
-    qrcode.appendChild(img);
+    // QR Code gerado com chave PIX
+    // Biblioteca QRCode.js inline
+    !function(t){function e(t){this.options={text:"",width:256,height:256,colorDark:"#000000",colorLight:"#ffffff",correctLevel:H.QRErrorCorrectLevel.H},typeof t=="string"&&(t=document.getElementById(t)),this._el=t,this._htOption={};for(var e in this.options)this._htOption[e]=this.options[e];this._htOption.text="chave-pix-aqui";this._el.innerHTML="";new QRCode(this._el,this._htOption)}function r(t){var e=document.createElement("script");e.src=t,document.head.appendChild(e)}var H=window;H.QRCode=e,r("https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js")}();
   </script>
 </body>
 </html>
