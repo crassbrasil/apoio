@@ -4,6 +4,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ajude Ana Laura</title>
   <style>
+    <!-- Modal Pix -->
+<div id="pixModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="fecharPopup()">&times;</span>
+    <h3 class="text-lg font-bold mb-4 text-center">Doe via Pix</h3>
+    <div class="flex flex-col items-center">
+      <img id="qrCode" src="" alt="QR Code Pix" class="w-48 h-48 mb-4" />
+      <textarea id="pixCode" class="w-full p-2 text-center text-sm bg-gray-100 rounded resize-none" rows="2" readonly></textarea>
+      <button onclick="copiarPix()" class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-all">Copiar Código Pix</button>
+    </div>
+  </div>
+</div>
+
     body { font-family: Arial, sans-serif; background: #fff; margin: 0; padding: 0; color: #333; }
     .container { max-width: 600px; margin: auto; padding: 20px; }
     h1 { color: #d63031; text-align: center; }
