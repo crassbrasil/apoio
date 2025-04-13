@@ -177,7 +177,7 @@
     <div class="popup-content">
       <h3>Escaneie o QR Code ou copie a chave Pix abaixo:</h3>
       <canvas id="qrcode"></canvas>
-      <p id="e2450eaf-07e1-11f0-8fa3-46da4690ad53"></p>
+      <p id="chavePix"></p>
       <button class="close-btn" onclick="fecharPopup()">Fechar</button>
     </div>
   </div>
@@ -185,7 +185,7 @@
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
     function abrirPopup(valor) {
-      const chave = `e2450eaf-07e1-11f0-8fa3-46da4690ad53`;
+      const chave = `00020126330014BR.GOV.BCB.PIX0114chavepix@exemplo520400005303986540${valor.toFixed(2)}5802BR5920Ana Laura Campanha6009SAO PAULO62070503***6304ABCD`;
       document.getElementById('popup').style.display = 'flex';
       document.getElementById('chavePix').innerText = chave;
       QRCode.toCanvas(document.getElementById('qrcode'), chave);
