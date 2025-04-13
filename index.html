@@ -1,203 +1,231 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ajude Ana Laura</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9fb;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
       color: #333;
-      text-align: center;
     }
     .container {
-      max-width: 800px;
+      max-width: 720px;
       margin: auto;
-      padding: 20px;
+      padding: 1rem;
     }
-    .headline {
-      font-size: 2em;
-      margin-bottom: 10px;
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #d94b4b;
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+    .cta-button {
+      display: block;
+      width: 100%;
+      background: #d94b4b;
+      color: white;
+      font-size: 1.2rem;
+      padding: 1rem;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      margin: 2rem 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #b33c3c;
     }
     .progress-container {
-      background-color: #ddd;
-      border-radius: 30px;
-      overflow: hidden;
-      margin: 20px 0;
-      position: relative;
-      height: 30px;
+      margin: 2rem 0;
     }
     .progress-bar {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 30px;
+      position: relative;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #f76565, #e13636);
       height: 100%;
-      background-color: #4caf50;
-      width: 70%;
-      animation: fill 2s ease-out;
+      width: 60%; /* dinamicamente ajustado */
+      animation: fillBar 2s ease-out;
+    }
+    @keyframes fillBar {
+      0% { width: 0; }
+      100% { width: 60%; }
     }
     .progress-text {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      line-height: 30px;
-      font-weight: bold;
-    }
-    @keyframes fill {
-      0% { width: 0; }
-      100% { width: 70%; }
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      text-align: center;
     }
     .donors-count {
-      margin: 10px 0;
-      font-size: 1.2em;
-    }
-    .donate-button {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: white;
-      background-color: #e91e63;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      .donate-button {
-        width: 90%;
-        font-size: 1em;
-      }
-    }
-    .pix-section {
-      margin-top: 30px;
-    }
-    .value-btn {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .highlight-box {
-      background-color: #ffeb3b;
-      padding: 15px;
-      border-radius: 8px;
       font-weight: bold;
-      margin: 20px 0;
+      text-align: center;
+      margin-top: 0.5rem;
     }
-    .modal {
+    .donation-amounts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .donation-amounts button {
+      background: #fff;
+      border: 2px solid #d94b4b;
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .donation-amounts button:hover {
+      background: #d94b4b;
+      color: #fff;
+    }
+    .promo-box {
+      background: #ffe4e4;
+      border-left: 6px solid #d94b4b;
+      padding: 1rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .description {
+      font-size: 1rem;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    .exam-img {
+      width: 100%;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .pix-popup {
       display: none;
       position: fixed;
-      z-index: 1;
-      padding-top: 100px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
     }
-    .modal-content {
-      background-color: #fefefe;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 400px;
+    .popup-content {
+      background: #fff;
+      padding: 2rem;
       border-radius: 10px;
+      text-align: center;
     }
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
+    .popup-content img {
+      max-width: 200px;
+      margin-bottom: 1rem;
     }
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .copy-button {
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 1em;
-      background-color: #2196f3;
+    .popup-content button.copy {
+      background: #d94b4b;
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
+    }
+    footer {
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <div class="headline">Ajude a Ana Laura!</div>
+    <header>
+      <h1>Ajude a Ana Laura!</h1>
+      <p>Com sua doação, Ana poderá realizar o tratamento que tanto precisa. 💖</p>
+    </header>
+
+    <button class="cta-button" onclick="scrollToSection('doar')">Doar Agora</button>
+
     <div class="progress-container">
-      <div class="progress-bar"></div>
-      <div class="progress-text">70%</div>
-    </div>
-    <div class="donors-count">257 pessoas já doaram!</div>
-    <button class="donate-button" onclick="document.getElementById('pix-section').scrollIntoView({ behavior: 'smooth' })">Doar Agora</button>
-
-    <div style="margin: 30px 0;">
-      <p>Estamos em uma campanha urgente para ajudar Ana Laura. Cada contribuição faz a diferença!</p>
-      <img src="exame1.jpg" width="100%" style="max-width:400px; margin: 10px 0;" />
-      <p>Seu apoio pode salvar uma vida. Juntos, podemos!</p>
-      <img src="exame2.jpg" width="100%" style="max-width:400px; margin: 10px 0;" />
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 60%"></div>
+      </div>
+      <div class="progress-text">60% da meta atingida - R$6.000 de R$10.000</div>
+      <div class="donors-count">153 pessoas já doaram 💗</div>
     </div>
 
-    <div id="pix-section" class="pix-section">
-      <h3>Clique no valor que deseja doar</h3>
-      <div class="highlight-box">✨ DOAÇÃO DUPLICADA! ✨<br>Doações a partir de R$50 serão multiplicadas por 2 pelos nossos patrocinadores! Até 25/04.</div>
-      <button class="value-btn" onclick="generatePix(20)">R$20</button>
-      <button class="value-btn" onclick="generatePix(30)">R$30</button>
-      <button class="value-btn" onclick="generatePix(50)">R$50</button>
-      <button class="value-btn" onclick="generatePix(100)">R$100</button>
+    <div class="section-title">Escolha um valor para doar</div>
+    <div class="donation-amounts" id="doar">
+      <button onclick="generatePix(20)">R$20</button>
+      <button onclick="generatePix(30)">R$30</button>
+      <button onclick="generatePix(50)">R$50</button>
+      <button onclick="generatePix(100)">R$100</button>
     </div>
+
+    <div class="promo-box">
+      <strong>✨ DOAÇÃO DUPLICADA! ✨</strong><br>
+      Doações a partir de <strong>R$50</strong> serão <strong>multiplicadas por 2</strong> pelos nossos patrocinadores e empresários! Sua ajuda vale o <strong>dobro até 25/04</strong>. 💥
+    </div>
+
+    <div class="section-title">Por que estamos pedindo ajuda?</div>
+    <div class="description">
+      Ana Laura é uma menina cheia de sonhos que está enfrentando um grave problema de saúde. Sua ajuda é essencial para garantir que ela tenha acesso ao tratamento necessário. 🙏
+    </div>
+    <img class="exam-img" src="https://via.placeholder.com/600x400" alt="Exame 1">
+    <div class="description">Os exames mostram a urgência do tratamento. Qualquer quantia ajuda muito.</div>
+    <img class="exam-img" src="https://via.placeholder.com/600x400" alt="Exame 2">
+
+    <footer>Obrigado por sua generosidade 💖</footer>
   </div>
 
-  <div id="pixModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('pixModal').style.display='none'">&times;</span>
-      <p><strong>QR Code para pagamento:</strong></p>
+  <!-- Popup -->
+  <div class="pix-popup" id="popup">
+    <div class="popup-content">
       <div id="qrcode"></div>
-      <p>Chave Pix (Copia e Cola):</p>
-      <input type="text" id="pixCode" readonly style="width:100%; padding: 5px;">
-      <button class="copy-button" onclick="copyPixCode()">Copiar código</button>
+      <p>Chave Pix (copie e cole):</p>
+      <input type="text" id="pixkey" value="" readonly style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+      <button class="copy" onclick="copyPixKey()">Copiar código Pix</button><br><br>
+      <button onclick="closePopup()">Fechar</button>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
-    function generatePix(value) {
-      const pixKey = "00020126430014br.gov.bcb.pix0114+5561999999995204000053039865802BR5920Ana Laura da Silva6009BRASILIA61080540900062070503***6304ABCD";
-      const fullPixCode = `BRCode: Ana Laura - Valor: R$${value}\nChave: ${pixKey}`;
-      document.getElementById("pixCode").value = pixKey;
-      document.getElementById("pixModal").style.display = "block";
-      document.getElementById("qrcode").innerHTML = "";
-      new QRCode(document.getElementById("qrcode"), {
-        text: fullPixCode,
-        width: 200,
-        height: 200
-      });
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
-
-    function copyPixCode() {
-      const copyText = document.getElementById("pixCode");
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      document.execCommand("copy");
-      alert("Código Pix copiado!");
+    function gerarPix(valor) {
+      const chave = '00020126360014BR.GOV.BCB.PIX0113+556199999999520400005303986540' + valor.toString().padStart(2, '0') + '5802BR5920Ana Laura da Silva6009SAO PAULO62110514AjudeAnaLaura6304';
+      document.getElementById('pixCode').value = chave;
+      document.getElementById('qrCode').src = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' + encodeURIComponent(chave);
+      document.getElementById('pixInfo').style.display = 'block';
+    }
+    function copiarPix() {
+      const textarea = document.getElementById('pixCode');
+      textarea.select();
+      document.execCommand('copy');
+      alert('Código Pix copiado!');
     }
   </script>
-</body>
 
+</body>
 </html>
