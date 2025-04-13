@@ -212,6 +212,18 @@
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 <script>
+  <!-- Elemento onde será exibido o QR Code -->
+<img id="qrCode" src="" style="display: block; margin: 20px auto;" />
+
+<!-- Campo do Pix Copia e Cola -->
+<textarea id="pixCode" readonly style="width: 100%; height: 60px;"></textarea>
+
+<!-- Botão para copiar -->
+<button onclick="copiarPix()">Copiar Código Pix</button>
+
+<!-- Div de exibição -->
+<div id="pixInfo" style="display: none;"></div>
+
   function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   }
